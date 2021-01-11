@@ -16,13 +16,11 @@
 
 package com.example.sportstracker;
 
-import android.app.ActivityManager;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.location.Location;
@@ -32,7 +30,6 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.IBinder;
 import android.os.Looper;
-import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.util.Log;
@@ -42,8 +39,9 @@ import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.google.android.gms.maps.model.LatLng;
+
+import java.util.ArrayList;
 
 /**
  * A bound and started service that is promoted to a foreground service when location updates have
@@ -73,7 +71,7 @@ public class LocationUpdatesService extends Service {
 
     static final String ACTION_BROADCAST = PACKAGE_NAME + ".broadcast";
 
-    static final String EXTRA_LOCATION = PACKAGE_NAME + ".location";
+    static final String EXTRA_LOCATIONS = PACKAGE_NAME + ".locations";
 
     private final IBinder mBinder = new LocalBinder();
 
@@ -112,6 +110,9 @@ public class LocationUpdatesService extends Service {
     private LocationCallback mLocationCallback;
 
     private Handler mServiceHandler;
+
+    // List with Locations we visited
+    private static ArrayList<LatLng> locations = new ArrayList<>();
 
     /**
      * The current location.
@@ -216,6 +217,11 @@ public class LocationUpdatesService extends Service {
     public void removeLocationUpdates() {
         Log.i(TAG, "Removing location updates");
         try {
+            // Notify anyone listening for broadcasts about all the locations.
+            Intent intent = new Intent(ACTION_BROADCAST);
+            intent.putParcelableArrayListExtra(EXTRA_LOCATIONS, locations);
+            LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(intent);
+
             mFusedLocationClient.removeLocationUpdates(mLocationCallback);
             Utils.setRequestingLocationUpdates(this, false);
             stopForeground(true);
@@ -256,11 +262,10 @@ public class LocationUpdatesService extends Service {
     private void onNewLocation(Location location) {
         Log.i(TAG, "New location: " + location);
         mLocation = location;
-        // Notify anyone listening for broadcasts about the new location.
-        Intent intent = new Intent(ACTION_BROADCAST);
-        intent.putExtra(EXTRA_LOCATION, location);
-        LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(intent);
-        //TODO: send location to RPI/Laptop/AWS-Instance
+        if (location != null) {
+            LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+            locations.add(latLng);
+        }
     }
 
     /**

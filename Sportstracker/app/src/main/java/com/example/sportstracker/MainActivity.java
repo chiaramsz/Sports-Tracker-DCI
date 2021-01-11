@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -26,7 +27,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.material.snackbar.Snackbar;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
@@ -51,6 +56,13 @@ public class MainActivity extends AppCompatActivity {
     // UI elements.
     private Button btnStart;
     private Button btnStop;
+
+    // List with Locations we visited
+    private static ArrayList<LatLng> locations;
+    public static final String EXTRA_LOCATIONS = "locations";
+
+    private static ProgressDialog progressDialog;
+    private boolean ready = false;
 
     // Monitors the state of the connection to the service.
     private final ServiceConnection mServiceConnection = new ServiceConnection() {
@@ -84,32 +96,51 @@ public class MainActivity extends AppCompatActivity {
 
         btnStart = findViewById(R.id.btnStartTracking);
         btnStop = findViewById(R.id.btnStopTracking);
-        btnStart.setOnClickListener(new View.OnClickListener() {
+    }
+
+    public void onButtonStartClicked(View v) {
+        if (ContextCompat.checkSelfPermission(
+                MainActivity.this,
+                ACCESS_FINE_LOCATION
+        ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            requestLocationAccess();
+        } else if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            buildAlertMessageNoGps();
+        } else {
+            mService.requestLocationUpdates();
+            btnStart.setVisibility(View.GONE);
+            btnStop.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public void onButtonStopClicked(View v) {
+        mService.removeLocationUpdates();
+        btnStop.setVisibility(View.GONE);
+        btnStart.setVisibility(View.VISIBLE);
+
+        progressDialog = new ProgressDialog(MainActivity.this);
+        progressDialog.setTitle("Saving Locations");
+        progressDialog.setMessage("Loading");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.show();
+
+        //dummy thread to simulate data transfer
+        new Thread(new Runnable() {
             @Override
-            public void onClick(View v) {
-                if (ContextCompat.checkSelfPermission(
-                        MainActivity.this,
-                        ACCESS_FINE_LOCATION
-                ) != PackageManager.PERMISSION_GRANTED
-                ) {
-                    requestLocationAccess();
-                } else if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-                    buildAlertMessageNoGps();
-                } else {
-                    mService.requestLocationUpdates();
-                    btnStart.setVisibility(View.GONE);
-                    btnStop.setVisibility(View.VISIBLE);
+            public void run() {
+                try {
+                    Thread.sleep(3000);
+                    startResultActivity();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
-        });
-        btnStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mService.removeLocationUpdates();
-                btnStop.setVisibility(View.GONE);
-                btnStart.setVisibility(View.VISIBLE);
-            }
-        });
+        }).start();
+        //TODO start connection to RPI Server
+        //TODO send locations
+        //TODO get TrackerID
+        //TODO when Data is send -> startResultActivity()
     }
 
     @Override
@@ -205,10 +236,28 @@ public class MainActivity extends AppCompatActivity {
     private class MyReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
-            Location location = intent.getParcelableExtra(LocationUpdatesService.EXTRA_LOCATION);
-            if (location != null) {
-                Toast.makeText(MainActivity.this, Utils.getLocationText(location),
-                        Toast.LENGTH_SHORT).show();
+            locations = intent.getParcelableArrayListExtra(LocationUpdatesService.EXTRA_LOCATIONS);
+            startResultActivity();
+        }
+    }
+
+    private void startResultActivity() {
+        if(progressDialog != null) {
+            if(ready) {
+                progressDialog.dismiss();
+                progressDialog = null;
+                ready = false;
+
+                Intent intent = new Intent(MainActivity.this, ShowResult.class);
+                intent.putExtra("Tracker_id", "000123");
+
+                //dummy activity to check if locations are correct
+//                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+//                intent.putParcelableArrayListExtra(EXTRA_LOCATIONS, locations);
+
+                startActivity(intent);
+            } else {
+                ready = true;
             }
         }
     }
