@@ -40,8 +40,10 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * A bound and started service that is promoted to a foreground service when location updates have
@@ -112,7 +114,7 @@ public class LocationUpdatesService extends Service {
     private Handler mServiceHandler;
 
     // List with Locations we visited
-    private static ArrayList<LatLng> locations = new ArrayList<>();
+    private static ArrayList<LocationElement> locations = new ArrayList<>();
 
     /**
      * The current location.
@@ -219,7 +221,8 @@ public class LocationUpdatesService extends Service {
         try {
             // Notify anyone listening for broadcasts about all the locations.
             Intent intent = new Intent(ACTION_BROADCAST);
-            intent.putParcelableArrayListExtra(EXTRA_LOCATIONS, locations);
+            String json = getLocationsAsJSON();
+            intent.putExtra(EXTRA_LOCATIONS, json);
             LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(intent);
 
             mFusedLocationClient.removeLocationUpdates(mLocationCallback);
@@ -230,6 +233,10 @@ public class LocationUpdatesService extends Service {
             Utils.setRequestingLocationUpdates(this, true);
             Log.e(TAG, "Lost location permission. Could not remove updates. " + unlikely);
         }
+    }
+
+    private String getLocationsAsJSON() {
+        return new Gson().toJson(locations);
     }
 
     /**
@@ -264,7 +271,7 @@ public class LocationUpdatesService extends Service {
         mLocation = location;
         if (location != null) {
             LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-            locations.add(latLng);
+            locations.add(new LocationElement(new Date(), latLng));
         }
     }
 

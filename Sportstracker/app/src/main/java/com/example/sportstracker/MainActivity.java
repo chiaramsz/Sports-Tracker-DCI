@@ -58,8 +58,12 @@ public class MainActivity extends AppCompatActivity {
     private Button btnStop;
 
     // List with Locations we visited
-    private static ArrayList<LatLng> locations;
+    private static String locations;
     public static final String EXTRA_LOCATIONS = "locations";
+
+    // Tracker id
+    private String trackerId = "000123";
+    public static final String TRACKER_ID = "Tracker_id";
 
     private static ProgressDialog progressDialog;
     private boolean ready = false;
@@ -236,7 +240,7 @@ public class MainActivity extends AppCompatActivity {
     private class MyReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
-            locations = intent.getParcelableArrayListExtra(LocationUpdatesService.EXTRA_LOCATIONS);
+            locations = intent.getStringExtra(LocationUpdatesService.EXTRA_LOCATIONS);
             startResultActivity();
         }
     }
@@ -249,11 +253,11 @@ public class MainActivity extends AppCompatActivity {
                 ready = false;
 
                 Intent intent = new Intent(MainActivity.this, ShowResult.class);
-                intent.putExtra("Tracker_id", "000123");
+                intent.putExtra(TRACKER_ID, trackerId);
 
                 //dummy activity to check if locations are correct
 //                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
-//                intent.putParcelableArrayListExtra(EXTRA_LOCATIONS, locations);
+//                intent.putExtra(EXTRA_LOCATIONS, locations);
 
                 startActivity(intent);
             } else {
