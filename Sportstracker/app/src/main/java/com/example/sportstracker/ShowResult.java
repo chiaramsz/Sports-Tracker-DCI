@@ -17,7 +17,7 @@ public class ShowResult extends AppCompatActivity {
         setContentView(R.layout.activity_show_result);
 
         TextView txtTrackerId = findViewById(R.id.txtTrackerID);
-        txtTrackerId.setText(getIntent().getStringExtra("Tracker_id"));
+        txtTrackerId.setText(getIntent().getStringExtra(MainActivity.TRACKER_ID));
 
         Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
