@@ -40,7 +40,7 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.gson.Gson;
+import org.json.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -236,7 +236,11 @@ public class LocationUpdatesService extends Service {
     }
 
     private String getLocationsAsJSON() {
-        return new Gson().toJson(locations);
+        StringBuilder json = new StringBuilder("{");
+        for (LocationElement element : locations) {
+            json.append(element.getAsJsonKeyValuePair() + ",");
+        }
+        return json.substring(0, json.length()-1) + "}";
     }
 
     /**

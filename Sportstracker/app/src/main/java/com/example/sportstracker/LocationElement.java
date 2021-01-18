@@ -31,4 +31,10 @@ public class LocationElement {
     public String getUnixTimestamp() {
         return String.valueOf(time.getTime()/1000);
     }
+
+    public String getAsJsonKeyValuePair() {
+        return "\"" + time.getTime()/1000 + "\": [" +
+                "{\"longitude\": " + location.longitude + "}," +
+                "{\"latitude\": " + location.latitude + "}]";
+    }
 }

@@ -23,7 +23,7 @@ public class ShowResult extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "http://www.google.com";
+                String url = "http://sportstrackerdci.s3-website-us-east-1.amazonaws.com/";
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url));
                 startActivity(i);
