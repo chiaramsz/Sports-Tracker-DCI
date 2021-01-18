@@ -3,6 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="a7f3e0ce-4a7f-40e0-9e3d-15c02a2682ad" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SportsTracker_DataCleaner/SportsTracker_DataCleaner/target/classes/com/amazonaws/samples/CleanSportsTrackerData.class" beforeDir="false" afterPath="$PROJECT_DIR$/SportsTracker_DataCleaner/SportsTracker_DataCleaner/target/classes/com/amazonaws/samples/CleanSportsTrackerData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SportsTracker_DataCleaner/src/main/java/com/amazonaws/samples/BucketAndEC2Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/SportsTracker_DataCleaner/src/main/java/com/amazonaws/samples/BucketAndEC2Connection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SportsTracker_DataCleaner/target/classes/com/amazonaws/samples/BucketAndEC2Connection.class" beforeDir="false" afterPath="$PROJECT_DIR$/SportsTracker_DataCleaner/target/classes/com/amazonaws/samples/BucketAndEC2Connection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SportsTracker_DataCleaner/target/classes/com/amazonaws/samples/CleanSportsTrackerData.class" beforeDir="false" afterPath="$PROJECT_DIR$/SportsTracker_DataCleaner/target/classes/com/amazonaws/samples/CleanSportsTrackerData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JupyterTrust" id="48104fdd-9044-49b0-9c9a-8d8abc2634ab" />
   <component name="ProjectId" id="1lyJXF47JTJaW5zCo4gcZgqAXxw" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -31,12 +39,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/js" />
     </key>
@@ -50,13 +64,21 @@
       <option name="presentableId" value="Default" />
       <updated>1608563437260</updated>
       <workItem from="1608563439268" duration="6594000" />
+      <workItem from="1608583689373" duration="182000" />
+      <workItem from="1608616682517" duration="251000" />
+      <workItem from="1608885266025" duration="109000" />
+      <workItem from="1610695784495" duration="1112000" />
+      <workItem from="1610698301883" duration="329000" />
+      <workItem from="1610717920798" duration="144000" />
+      <workItem from="1610738146946" duration="846000" />
+      <workItem from="1610781000917" duration="1098000" />
+      <workItem from="1610804403402" duration="1510000" />
+      <workItem from="1610884939923" duration="222000" />
+      <workItem from="1610957481035" duration="391000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
 </project>

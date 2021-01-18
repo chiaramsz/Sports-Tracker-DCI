@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="SportsTracker_DataCleaner/SportsTracker_DataCleaner/src/main/java"/>
+	<classpathentry kind="src" path="SportsTracker_DataCleaner/src/main/java"/>
+	<classpathentry kind="src" path="Sportstracker/app/src/androidTest/java"/>
+	<classpathentry kind="src" path="Sportstracker/app/src/main/java"/>
+	<classpathentry kind="src" path="Sportstracker/app/src/test/java"/>
+	<classpathentry kind="lib" path="frontend/polymaps/lib/google-compiler/compiler-20100616.jar"/>
+	<classpathentry kind="lib" path="Sportstracker/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="output" path="SportsTracker_DataCleaner/SportsTracker_DataCleaner/target/classes"/>
+</classpath>

@@ -48,6 +48,8 @@ public class BucketAndEC2Connection {
 	public static void main(String[] args) throws IOException, InterruptedException {
 
 		CleanSportsTrackerData cleaner = new CleanSportsTrackerData();
+
+
 		
 		/***************** Load the credentials ****************/
 		AWSCredentialsProvider credentials = null;

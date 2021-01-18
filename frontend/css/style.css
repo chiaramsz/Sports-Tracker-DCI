@@ -4,8 +4,15 @@
     box-sizing: border-box;
 }
 
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+#map {
+  height: 100%;
+}
+
+
 header {
-    background-image: url(../imgs/header.png);
+    /*background-image: url(../imgs/header.png); */
     background-size: cover;
 }
 
@@ -587,7 +594,6 @@ nav.navbar ul li a {
 /* agency */
 
 .agency {
-    background-image: url('../imgs/agency.png');
     font-family: 'Open Sans', sans-serif;
     background-size: cover;
 }
@@ -686,7 +692,6 @@ nav.navbar ul li a {
 /* contact */
 
 .contact {
-    background-image: url('../imgs/contact.png');
     background-size: cover;
 }
 
