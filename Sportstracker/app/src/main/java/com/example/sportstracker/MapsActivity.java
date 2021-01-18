@@ -13,7 +13,10 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +24,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
 
-    private List<LatLng> locations;
+    private List<LocationElement> locations;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +35,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        locations = getIntent().getParcelableArrayListExtra(MainActivity.EXTRA_LOCATIONS);
+        String json = getIntent().getStringExtra(MainActivity.EXTRA_LOCATIONS);
+        Type listType = new TypeToken<List<LocationElement>>() {
+        }.getType();
+        locations = new Gson().fromJson(json, listType);
     }
 
     /**
@@ -49,7 +55,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
 
-        LatLng start = locations.get(0);
+        LatLng start = locations.get(0).getLocation();
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(start, 13.0f));
 
         drawTheRoute();
@@ -57,7 +63,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private void drawTheRoute() {
         PolylineOptions po = new PolylineOptions();
-        po.addAll(locations);
+        for (LocationElement element : locations) {
+            po.add(element.getLocation());
+        }
         mMap.addPolyline(po);
     }
 }

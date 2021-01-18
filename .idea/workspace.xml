@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7f3e0ce-4a7f-40e0-9e3d-15c02a2682ad" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Sportstracker/app/src/main/java/com/example/sportstracker/LocationElement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SportsTracker_DataCleaner/SportsTracker_DataCleaner/target/classes/com/amazonaws/samples/CleanSportsTrackerData.class" beforeDir="false" afterPath="$PROJECT_DIR$/SportsTracker_DataCleaner/SportsTracker_DataCleaner/target/classes/com/amazonaws/samples/CleanSportsTrackerData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SportsTracker_DataCleaner/src/main/java/com/amazonaws/samples/BucketAndEC2Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/SportsTracker_DataCleaner/src/main/java/com/amazonaws/samples/BucketAndEC2Connection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SportsTracker_DataCleaner/target/classes/com/amazonaws/samples/BucketAndEC2Connection.class" beforeDir="false" afterPath="$PROJECT_DIR$/SportsTracker_DataCleaner/target/classes/com/amazonaws/samples/BucketAndEC2Connection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SportsTracker_DataCleaner/target/classes/com/amazonaws/samples/CleanSportsTrackerData.class" beforeDir="false" afterPath="$PROJECT_DIR$/SportsTracker_DataCleaner/target/classes/com/amazonaws/samples/CleanSportsTrackerData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sportstracker/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Sportstracker/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sportstracker/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Sportstracker/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sportstracker/app/src/main/java/com/example/sportstracker/LocationUpdatesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sportstracker/app/src/main/java/com/example/sportstracker/LocationUpdatesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sportstracker/app/src/main/java/com/example/sportstracker/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sportstracker/app/src/main/java/com/example/sportstracker/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sportstracker/app/src/main/java/com/example/sportstracker/MapsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sportstracker/app/src/main/java/com/example/sportstracker/MapsActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sportstracker/app/src/main/java/com/example/sportstracker/ShowResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sportstracker/app/src/main/java/com/example/sportstracker/ShowResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +75,7 @@
       <workItem from="1610781000917" duration="1098000" />
       <workItem from="1610804403402" duration="1510000" />
       <workItem from="1610884939923" duration="222000" />
-      <workItem from="1610957481035" duration="391000" />
+      <workItem from="1610957481035" duration="1541000" />
     </task>
     <servers />
   </component>

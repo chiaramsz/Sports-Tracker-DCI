@@ -1,7 +1,11 @@
 let data = new Map();
 
-function receiveDataFromLaptop() {
-    let list = [60, 400, 10]; //duration, calories, distance
+function receiveDataFromLaptop(trackerId) {
+
+
+
+
+    let list = [trackerId, 60, 400, 10]; //duration, calories, distance
 
     data.set(1, list);
     data.set(2, list);
@@ -10,19 +14,19 @@ function receiveDataFromLaptop() {
 
 function visualizeData() {
 
-    getTrackerId();
+    trackerId = getTrackerId();
 
     //duration
-    receiveDataFromLaptop()
+    receiveDataFromLaptop(trackerId)
 
     let duration = document.getElementById("duration");
     let calories = document.getElementById("calories");
     let distance = document.getElementById("distance");
 
     for(let[key,value] of data) {
-        duration.innerText = value[0] + " minutes";
-        calories.innerText = value[1] + " kcal";
-        distance.innerText = value[2] + " km";
+        duration.innerText = value[1] + " minutes";
+        calories.innerText = value[2] + " kcal";
+        distance.innerText = value[3] + " km";
     }
 }
 
@@ -32,6 +36,7 @@ visualizeData();
 function getTrackerId() {
     let trackerId = document.getElementById("trackerId").value;
     console.log(trackerId);
+    return trackerId;
 }
 
 function initMap() {
