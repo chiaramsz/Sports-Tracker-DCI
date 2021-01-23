@@ -5,6 +5,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -42,12 +44,12 @@ public class BucketAndEC2Connection {
 
 	static AmazonS3 s3;
 	static String bucketName = "sportstrackerdci";
-	
-	static AmazonEC2 ec2 = CleanSportsTrackerData.getEC2Instance();
+	static int portNumber = 6400;
+
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 
-		CleanSportsTrackerData cleaner = new CleanSportsTrackerData();
+
 		
 		/***************** Load the credentials ****************/
 		AWSCredentialsProvider credentials = null;
@@ -79,18 +81,18 @@ public class BucketAndEC2Connection {
 			 * NoSuchBucketException(bucketName + " does not exist"); }
 			 */
 
-			/***************** Upload cleaned data to bucket ****************/
-			// https://docs.aws.amazon.com/AmazonS3/latest/dev/llJavaUploadFile.html
-			File uploadFile = CleanSportsTrackerData.getUploadFile();
-			String key = uploadFile.getName();
-
-			s3.putObject(bucketName, key, uploadFile);
+			/***************** Wait for clients to connect ****************/
+			ServerSocket serverSocket = new ServerSocket(portNumber);
+			while (true){
+				Socket clientSocket = serverSocket.accept();
+				new Thread(new ServerThread(clientSocket)).start();
+			}
 
 			/*****************
 			 * list all objects in the bucket to check that data file is inside
 			 ****************/
 
-			System.out.format("Objects in S3 bucket %s:\n", bucketName);
+/*			System.out.format("Objects in S3 bucket %s:\n", bucketName);
 			ListObjectsV2Result result = s3.listObjectsV2(bucketName);
 			List<S3ObjectSummary> objects = result.getObjectSummaries();
 			for (S3ObjectSummary os : objects) {
@@ -100,18 +102,12 @@ public class BucketAndEC2Connection {
 			System.out.println();
 			Thread.sleep(10000);
 
-			/***************** delete file from bucket afterwards ****************/ // delete this method when in
-																					// production
-			s3.deleteObject(new DeleteObjectRequest(bucketName, key));
-			System.out.println("Deleted file from bucket");
 
-			System.out.println();
-			Thread.sleep(10000);
 
-			/***************** Delete bucket ****************/ // delete this method when in production
+			*//***************** Delete bucket ****************//* // delete this method when in production
 			System.out.println("Deleting bucket");
 			s3.deleteBucket(new DeleteBucketRequest(bucketName));
-			Thread.sleep(10000);
+			Thread.sleep(10000);*/
 
 		} catch (AmazonServiceException ase) {
 			System.out.println("Caught an AmazonServiceException, which means your request made it "
