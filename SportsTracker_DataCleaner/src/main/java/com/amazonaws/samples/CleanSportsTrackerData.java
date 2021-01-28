@@ -22,6 +22,8 @@ public class CleanSportsTrackerData {
 	static AmazonEC2 ec2;
 	static final String IMAGE_ID = "ami-0947d2ba12ee1ff75"; //replace
 	private static File uploadFile;
+
+	// estimated calories burned for 1km
 	static final int kcal = 100;
 
 	public CleanSportsTrackerData() {

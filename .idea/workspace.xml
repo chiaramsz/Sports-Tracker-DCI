@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7f3e0ce-4a7f-40e0-9e3d-15c02a2682ad" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SportsTracker_DataCleaner/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SportsTracker_DataCleaner/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SportsTracker_DataCleaner/src/main/java/com/amazonaws/samples/BucketAndEC2Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/SportsTracker_DataCleaner/src/main/java/com/amazonaws/samples/BucketAndEC2Connection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SportsTracker_DataCleaner/src/main/java/com/amazonaws/samples/CleanSportsTrackerData.java" beforeDir="false" afterPath="$PROJECT_DIR$/SportsTracker_DataCleaner/src/main/java/com/amazonaws/samples/CleanSportsTrackerData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SportsTracker_DataCleaner/target/classes/com/amazonaws/samples/BucketAndEC2Connection.class" beforeDir="false" afterPath="$PROJECT_DIR$/SportsTracker_DataCleaner/target/classes/com/amazonaws/samples/BucketAndEC2Connection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SportsTracker_DataCleaner/target/classes/com/amazonaws/samples/CleanSportsTrackerData.class" beforeDir="false" afterPath="$PROJECT_DIR$/SportsTracker_DataCleaner/target/classes/com/amazonaws/samples/CleanSportsTrackerData.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +22,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1lyJXF47JTJaW5zCo4gcZgqAXxw" />
@@ -99,11 +99,23 @@
       <workItem from="1609873488674" duration="10000" />
       <workItem from="1609880901481" duration="58000" />
       <workItem from="1609881461136" duration="1019000" />
-      <workItem from="1611820421662" duration="3252000" />
+      <workItem from="1611820421662" duration="4286000" />
     </task>
+    <task id="LOCAL-00001" summary="cleaning data and adding duration + distance etc">
+      <created>1611824844708</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1611824844708</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="cleaning data and adding duration + distance etc" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleaning data and adding duration + distance etc" />
   </component>
 </project>
