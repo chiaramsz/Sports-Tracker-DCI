@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean ready = false;
 
     //connection to kevin
-    private static String hostName = "test";
+    private static String hostName = "sportstracker";
     private static int portNumber = 123;
 
     // Monitors the state of the connection to the service.
