@@ -12,8 +12,6 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 
-import static com.amazonaws.samples.CleanSportsTrackerData.bucketName;
-
 public class ServerThread implements Runnable {
 
 
@@ -41,10 +39,7 @@ public class ServerThread implements Runnable {
             System.out.println("locations received");
 
             JSONObject json = new JSONObject(locations);
-            File file = createFile(json, tracker);
-
-            uploadFile(file);
-            System.out.println("file uploaded");
+            createFile(json, tracker);
 
         } catch (IOException e) {
             System.out.println("error in ServerThread");
@@ -159,13 +154,4 @@ public class ServerThread implements Runnable {
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         return earthRadiusKm * c;
     }
-
-    private void uploadFile(File file) {
-        /***************** Upload cleaned data to bucket ****************/
-        // https://docs.aws.amazon.com/AmazonS3/latest/dev/llJavaUploadFile.html
-
-        String key = file.getName();
-        CleanSportsTrackerData.s3.putObject(bucketName, key, file);
-    }
-
 }

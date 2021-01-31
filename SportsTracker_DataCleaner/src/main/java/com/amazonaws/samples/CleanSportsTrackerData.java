@@ -15,15 +15,6 @@ import java.net.Socket;
 
 public class CleanSportsTrackerData {
 
-    // static KeyPair keyPair;
-    static AmazonEC2 ec2;
-    // static final String IMAGE_ID = "ami-0947d2ba12ee1ff75";
-
-    static AmazonS3 s3;
-    static String bucketName = "sportstrackerdci";
-
-
-
     public static void main(String[] args) throws IOException, IllegalStateException {
 
         try {
