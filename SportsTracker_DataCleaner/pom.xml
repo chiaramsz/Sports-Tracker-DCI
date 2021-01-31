@@ -13,26 +13,27 @@
           <target>8</target>
         </configuration>
       </plugin>
-    </plugins>
-  </build>
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>7</source>
-          <target>7</target>
-        </configuration>
-      </plugin>
       <plugin>
         <artifactId>maven-jar-plugin</artifactId>
         <configuration>
           <archive>
             <manifest>
-              <mainClass>com.amazonaws.samples.BucketAndEC2Connection</mainClass>
+              <mainClass>com.amazonaws.samples.CleanSportsTrackerData</mainClass>
             </manifest>
           </archive>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>com.amazonaws.samples.CleanSportsTrackerData</mainClass>
+            </manifest>
+          </archive>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
         </configuration>
       </plugin>
     </plugins>
@@ -43,6 +44,12 @@
       <artifactId>aws-java-sdk</artifactId>
       <version>1.11.256</version>
       <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-assembly-plugin</artifactId>
+      <version>3.3.0</version>
+      <type>maven-plugin</type>
     </dependency>
     <dependency>
       <groupId>org.json</groupId>

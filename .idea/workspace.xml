@@ -23,15 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7f3e0ce-4a7f-40e0-9e3d-15c02a2682ad" name="Default Changelist" comment="merge">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SportsTracker_DataCleaner/SportsTracker_DataCleaner/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SportsTracker_DataCleaner/SportsTracker_DataCleaner/src/main/java/com/amazonaws/samples/CleanSportsTrackerData.java" beforeDir="false" afterPath="$PROJECT_DIR$/SportsTracker_DataCleaner/src/main/java/com/amazonaws/samples/CleanSportsTrackerData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SportsTracker_DataCleaner/SportsTracker_DataCleaner/target/classes/com/amazonaws/samples/CleanSportsTrackerData.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/SportsTracker_DataCleaner/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SportsTracker_DataCleaner/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SportsTracker_DataCleaner/src/main/java/com/amazonaws/samples/BucketAndEC2Connection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SportsTracker_DataCleaner/src/main/java/com/amazonaws/samples/ServerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/SportsTracker_DataCleaner/src/main/java/com/amazonaws/samples/ServerThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sportstracker/app/src/main/java/com/example/sportstracker/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sportstracker/app/src/main/java/com/example/sportstracker/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SportsTracker_DataCleaner/target/classes/com/amazonaws/samples/BucketAndEC2Connection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SportsTracker_DataCleaner/target/classes/com/amazonaws/samples/CleanSportsTrackerData.class" beforeDir="false" afterPath="$PROJECT_DIR$/SportsTracker_DataCleaner/target/classes/com/amazonaws/samples/CleanSportsTrackerData.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +57,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1lyJXF47JTJaW5zCo4gcZgqAXxw" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -89,13 +86,15 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
