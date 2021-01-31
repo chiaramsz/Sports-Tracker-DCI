@@ -22,20 +22,13 @@ public class CleanSportsTrackerData {
     static AmazonS3 s3;
     static String bucketName = "sportstrackerdci";
 
-    static final int portNumber = 6400;
 
 
     public static void main(String[] args) throws IOException, IllegalStateException {
 
         try {
-
-            /***************** Wait for clients to connect ****************/
-            ServerSocket serverSocket = new ServerSocket(portNumber);
-            while (true) {
-                Socket clientSocket = serverSocket.accept();
-                new Thread(new ServerThread(clientSocket)).start();
-            }
-
+            new Thread(new BackendThread()).start();
+            new Thread(new FrontendThread()).start();
 
         } catch (AmazonServiceException ase) {
             System.out.println("Caught an AmazonServiceException, which means your request made it "
