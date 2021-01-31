@@ -1,0 +1,921 @@
+.agm-map {
+  height: 300px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+#map {
+  height: 100%;
+}
+
+
+header {
+  /*background-image: url(../imgs/header.png); */
+  background-size: cover;
+}
+
+.small-container {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+
+}
+
+
+.row > p {
+  justify-content: space-between;
+
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, .51);
+  width: 100%;
+  height: 100%;
+}
+
+.violet-overlay {
+  background-color: rgba(189, 140, 191, .51);
+  width: 100%;
+  height: 100%;
+  padding: 70px 0;
+}
+
+.white-overlay {
+  background-color: rgba(255, 255, 255, .7);
+  height: 100%;
+  width: 100%;
+}
+
+.margin_top_30 {
+  margin-top: 30px;
+}
+
+
+h2 span, h1 span {
+  color: #bd8cbf;
+}
+
+li {
+  list-style-type: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a, button {
+  transition: all .5s ease;
+}
+
+button {
+  padding: 0
+}
+
+body {
+  font-size: 1.1rem;
+}
+
+
+
+.layout_padding {
+  padding: 75px 0 50px;
+}
+
+
+
+p {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.full {
+  width: 100%;
+  float: left;
+  margin: 0;
+}
+
+.text_align_center {
+  text-align: center;
+}
+
+.img-responsive {
+  max-width: 100%;
+}
+
+.white_font {
+  color: #fff !important;
+}
+
+.h3, h3 {
+  font-size: 40px;
+  font-weight: 700;
+  color: #3a3a3a;
+  text-transform: uppercase;
+}
+
+.h2, h2 {
+  font-size: 50px;
+  color: #040000;
+  font-weight: 700;
+  position: relative;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+h2.heading_section::after {
+  width: 265px;
+  height: 1px;
+  background: #050000;
+  content: "";
+  justify-content: center;
+  margin: 10px auto 0;
+  position: relative;
+  display: block;
+}
+
+h2.heading_section::before {
+  width: 15px;
+  height: 15px;
+  content: "";
+  display: block;
+  background: #084384;
+  margin: 0 auto;
+  border-radius: 100%;
+  position: absolute;
+  bottom: -6px;
+  left: 49.5%;
+  z-index: 1;
+}
+
+
+.container {
+  max-width: 1170px;
+}
+
+/* header */
+
+header {
+  position: relative;
+  color: #FFF;
+  font-family: 'Roboto', sans-serif;
+}
+
+header .container {
+  height: 100%
+}
+
+header .container > div {
+  margin: 0 auto;
+  position: relative;
+  /*    text-align: center;*/
+}
+
+header .container > div h1 {
+  font-size: 90px;
+}
+
+h3.blog_head {
+  width: 100%;
+  float: left;
+  background: #fff;
+  text-align: center;
+  font-size: 25px;
+  text-transform: uppercase;
+  color: #090101;
+  margin: 0;
+  min-height: 75px;
+  line-height: 75px;
+}
+
+
+
+.top_section {
+  background: #ffc107;
+  padding: 90px 90px 0;
+}
+
+
+
+
+/* footer */
+
+footer, footer a {
+  color: white;
+}
+
+footer {
+  display: block;
+  overflow: hidden;
+  background-color: #0c2326;
+}
+
+footer a:hover,
+footer a:focus {
+  color: #b52f3c;
+}
+
+footer .container > ul {
+  overflow: hidden;
+  margin: 30px 0;
+  padding-left: 0;
+}
+
+footer .container > ul li {
+  float: left;
+  padding-right: 25px;
+}
+
+footer .item h4 {
+  margin-bottom: 20px
+}
+
+footer .item p.address {
+  line-height: 1.2;
+  font-size: 16px;
+}
+
+footer .item ul {
+  padding-left: 0;
+}
+
+footer .item ul li {
+  margin-bottom: 3px;
+  font-size: 16px;
+}
+
+footer .date p {
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+footer .item form {
+  overflow: hidden;
+}
+
+footer .item form input {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px 10px;
+  font-size: 14px;
+  border: none;
+  height: 45px;
+}
+
+footer .copyright {
+  padding: 15px 0;
+}
+
+footer .copyright p {
+  margin-bottom: 0;
+  font-size: 16px;
+  color: #787777;
+}
+
+footer .copyright p a {
+  color: #787777;
+}
+
+footer .copyright p a:hover,
+footer .copyright p a:focus {
+  color: #fff;
+  text-decoration: underline;
+}
+
+footer .item p img {
+  margin-top: 0;
+  width: 20px;
+  margin-right: 0;
+}
+
+footer .item ul.opening_hour_ {
+  margin-top: 0;
+}
+
+/* media queries */
+
+@media (max-width: 1200px) {
+
+  /* about */
+  .about-us .row > .col-lg-6:first-of-type {
+    left: -10px;
+  }
+
+  .about-us .small-container .text-right p {
+    width: 70%
+  }
+
+  .about-us .item {
+    width: 150px
+  }
+
+  .about-us .item img {
+    height: 125px
+  }
+
+  .about-us .item:first-of-type {
+    left: 440px;
+    bottom: 154px;
+  }
+
+  .about-us .item:nth-of-type(2) {
+    left: 167px;
+    bottom: 153px;
+  }
+
+  .about-us .item:nth-of-type(3) {
+    top: 149px;
+    left: 19px;
+  }
+
+  .about-us .item:last-of-type {
+    left: 305px;
+    top: 132px;
+  }
+
+  .about-us .row > div > .item:nth-of-type(3) img {
+    position: static
+  }
+
+  .about-us .row > div > .item:nth-of-type(3) p {
+    display: none;
+  }
+
+  /* agency */
+  @media (max-width: 992px) {
+
+    /* header */
+    header h1 {
+      font-size: 65px !important;
+    }
+
+
+    /* about */
+    .about-us .small-container > p + div {
+      padding: 50px 0;
+    }
+
+    .about-us .row > .col-lg-6:first-of-type {
+      height: 350px;
+      left: 50px;
+    }
+
+    .about-us .small-container .text-right p {
+      width: 100%;
+    }
+
+
+    /* footer */
+    footer .col-lg-3 {
+      margin-bottom: 40px;
+    }
+
+  }
+
+  @media (max-width: 768px) {
+
+    /* header */
+    header h1 {
+      font-size: 50px !important;
+    }
+
+    /* about */
+    .about-us .row > .col-lg-6:first-of-type {
+      display: none;
+    }
+
+  }
+
+
+  footer .item p img {
+    position: absolute;
+    left: 0;
+    top: 5px;
+  }
+
+  footer .item p {
+    position: relative;
+    padding-left: 25px;
+    font-size: 16px;
+    margin: 0 0 10px 0;
+  }
+
+  footer .copyright {
+    padding: 15px 0 16px;
+    margin-top: 50px;
+    background: #0e0906;
+  }
+
+  footer .item p strong {
+    font-weight: 700;
+    margin-bottom: 5px;
+    float: left;
+    width: 100%;
+  }
+
+  footer {
+    display: block;
+    overflow: hidden;
+    background-color: #1b1b1b;
+    padding: 90px 0 0;
+  }
+
+  .cpy {
+    margin: 0;
+    padding: 0;
+  }
+
+  footer .item h4 {
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-weight: 400;
+  }
+
+
+  .top_inner {
+    box-shadow: 0 0px 50px 0px rgba(0, 0, 0, 0.34);
+  }
+
+
+  footer .item ul li {
+    float: left;
+    margin-right: 10px;
+  }
+
+  footer .item ul.opening_hour_ li span.right_side {
+    float: right;
+  }
+
+  footer .item ul li {
+    font-weight: 300;
+    font-size: 16px;
+    width: 100%;
+  }
+
+  footer div.item.social_icon li {
+    float: left;
+    width: auto;
+  }
+
+  footer .item ul {
+    margin-top: 15px;
+    margin-bottom: 0;
+    float: left;
+  }
+
+
+  @media (min-width: 1200px) and (max-width: 1400px) {
+
+    .ovarlay_slide_cont {
+      background: transparent;
+      position: absolute;
+      width: 70%;
+      z-index: 1111111111;
+      left: 15%;
+      padding: 20px 0 0;
+    }
+
+    .ovarlay_slide_cont h2 {
+      color: #fff;
+      text-transform: none;
+      font-size: 60px;
+      font-weight: 700;
+      line-height: 60px;
+      margin: 0 0 60px 0;
+    }
+
+    .ovarlay_slide_cont .blue_bt {
+      display: none;
+    }
+
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+
+    .ovarlay_slide_cont {
+      background: rgba(5, 3, 0, 0.63);
+      position: absolute;
+      width: 70%;
+      margin: 0 15%;
+      z-index: 1111111111;
+      top: 0;
+      left: 0;
+      padding: 50px 60px 70px;
+    }
+
+    .ovarlay_slide_cont h2 {
+      font-size: 45px;
+    }
+
+    .ovarlay_slide_cont p {
+      color: #fff;
+      font-weight: 300;
+      margin: 0 0 30px 0;
+      font-size: 19px;
+      padding: 0;
+      line-height: 28px;
+    }
+
+    .h3, h3 {
+      font-size: 30px;
+    }
+
+    .about_section h3 {
+      font-size: 30px;
+    }
+
+    .about_section h4 {
+      color: #4fcaff;
+      font-size: 16px;
+      margin: 0;
+    }
+
+    .contact-form {
+      padding: 40px 50px;
+      background: #4fcaff;
+      min-height: 600px;
+      margin-top: 60px;
+    }
+
+    .service_blog img {
+      width: 100%;
+    }
+
+  }
+
+  @media (max-width: 767px) {
+
+    .layout_padding {
+      padding: 50px 0;
+    }
+
+    .about_section h3 {
+      font-size: 30px;
+      margin: 10px 0 25px 0;
+      font-weight: 700;
+      line-height: 32px;
+    }
+
+    .h3, h3 {
+      font-size: 30px;
+      font-weight: 700;
+      color: #3a3a3a;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    h3.blog_head {
+      width: 100%;
+      float: left;
+      background: #fff;
+      text-align: center;
+      font-size: 20px;
+      text-transform: uppercase;
+      color: #090101;
+      margin: 0;
+      min-height: 55px;
+      line-height: 55px;
+    }
+
+    .service_blog h3.blog_head {
+      float: left;
+      background: #4fcaff;
+      text-align: center;
+      font-size: 22px;
+      text-transform: none;
+      margin: 0;
+      min-height: 50px;
+      line-height: 50px;
+      padding: 0 40px;
+      color: #fff;
+      position: absolute;
+      bottom: 0;
+      width: 70%;
+      max-width: 300px;
+      left: 15px;
+    }
+
+    .contact-form {
+      padding: 35px 40px;
+      background: #4fcaff;
+      min-height: 600px;
+      margin-top: 20px;
+    }
+
+    .contact-form form input {
+      margin: 10px 0;
+    }
+
+    #contact img {
+      margin-top: 30px;
+    }
+
+    .testimonial_blog {
+      background: #a1a1a1;
+      width: 100%;
+      padding: 30px 30px;
+      box-shadow: 10px 10px 0 0 #4fcaff;
+    }
+
+    .testimonial_blog p:first-child {
+      font-size: 30px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 17px;
+      font-weight: 300;
+    }
+
+    .subcribe form {
+      height: auto;
+      background: #fff;
+      margin-top: 20px;
+      padding: 0;
+      font-weight: 300;
+      font-size: 19px;
+      display: block;
+    }
+
+    .subcribe form input {
+      margin: 0;
+      padding: 20px 30px;
+      width: 100%;
+      border: none;
+      font-size: 20px;
+      font-weight: 300;
+    }
+
+    .subcribe form button {
+      background: #fa3e19;
+      color: #fff;
+      width: 100%;
+      border: none;
+      font-size: 20px;
+      padding: 12px 0;
+    }
+
+    .subcribe form button:hover,
+    .subcribe form button:focus {
+      background: #111;
+      color: #fff;
+    }
+
+    .ovarlay_slide_cont {
+      display: none;
+    }
+
+    .service_blog img {
+      width: 100%;
+    }
+
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+
+    .navbar ul {
+      background-color: transparent;
+    }
+
+    .top_section {
+      background: #ffc107;
+      padding: 50px 50px 0;
+    }
+
+    .ovarlay_slide_cont h2 {
+      color: #fff;
+      text-transform: none;
+      font-size: 80px;
+      font-weight: 700;
+      line-height: 75px;
+      margin: 0 0 60px 0;
+    }
+
+    nav.navbar {
+      position: relative;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      font-family: 'poppins', sans-serif;
+      background: transparent;
+      min-height: 95px;
+      width: 100%;
+      padding: 0;
+      background: #999;
+    }
+
+    .ovarlay_slide_cont {
+      display: none;
+    }
+
+    #main_slider {
+      margin-top: 0;
+    }
+
+    .navbar-brand {
+      padding: 15px;
+    }
+
+    nav.navbar ul li {
+      padding: 0 5px;
+      position: relative;
+    }
+
+    .opening_hour_blog {
+      width: 115%;
+      background: #fff;
+      margin-top: 80px;
+      padding: 45px 50px;
+      margin-left: 20%;
+      z-index: 1;
+      margin-bottom: 80px;
+    }
+
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+
+    .ovarlay_slide_cont h2 {
+      font-size: 45px;
+      line-height: 45px;
+    }
+
+    .blue_bt {
+      width: 180px;
+      height: 50px;
+      background: #a32e37;
+      color: #fff;
+      float: left;
+      text-align: center;
+      line-height: 49px;
+      font-size: 17px;
+      font-weight: 300;
+    }
+
+    .ovarlay_slide_cont h2 {
+      font-size: 45px;
+      line-height: 45px;
+      margin-bottom: 20px;
+    }
+
+    .ovarlay_slide_cont {
+      background: rgba(5, 3, 0, 0.3);
+      position: absolute;
+      width: 70%;
+      margin: 0 15%;
+      z-index: 1111111111;
+      top: 0;
+      left: 0;
+      padding: 50px 60px 75px;
+      margin-top: 5%;
+      height: 80%;
+    }
+
+  }
+
+  @media (max-width: 991px) {
+
+    #header {
+      background: #666;
+      padding: 0 15px;
+    }
+
+    .navbar ul {
+      background-color: #222;
+      margin-top: 10px;
+    }
+
+    .navbar-light .navbar-toggler {
+
+      color: #000;
+      background: #fff;
+      width: 50px;
+      padding: 0;
+      height: 45px;
+      border: none;
+
+    }
+
+    #header img {
+      width: 150px;
+    }
+
+    .top_section {
+      background: #b52f3c;
+      padding: 0 0 0;
+    }
+
+    #main_slider {
+      margin-top: 0;
+    }
+
+    .carousel-control-next img, .carousel-control-prev img {
+      max-height: 80%;
+    }
+
+    nav.navbar ul li a {
+      color: #fff !important;
+    }
+
+    .navbar-nav li a {
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    #show-menu {
+      position: absolute;
+      left: 0;
+      top: 80px;
+      width: 100%;
+    }
+
+    .h2, h2 {
+      font-size: 28px;
+      color: #040000;
+      font-weight: 700;
+      position: relative;
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    h2.heading_section::after {
+      width: 100px;
+      height: 1px;
+      background: #050000;
+      content: "";
+      justify-content: center;
+      margin: 10px auto 0;
+      position: relative;
+      display: block;
+    }
+
+    h2.heading_section::before {
+      width: 15px;
+      height: 15px;
+      content: "";
+      display: block;
+      background: #a92c38;
+      margin: 0 auto;
+      border-radius: 100%;
+      position: absolute;
+      bottom: -6px;
+      left: 46.5%;
+      z-index: 1;
+    }
+
+    #trainings_blog p {
+      color: #fff;
+      margin-top: 0;
+    }
+
+    .dance_form_name h4 {
+      line-height: 210px;
+      font-size: 40px;
+      font-weight: 400;
+    }
+
+    .opening_hour_blog {
+      margin-top: 80px;
+      padding: 35px 30px;
+    }
+
+    .opening_hour_blog h3 {
+      font-weight: 500;
+      color: #050000;
+      font-size: 25px;
+    }
+
+    .opening_hour_blog ul li {
+      line-height: 34px;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    .contact-form {
+      padding: 35px 40px;
+      background: #fff;
+      min-height: auto;
+      margin-top: 20px;
+    }
+
+    .opening_hour_blog {
+      margin-top: 80px;
+      padding: 35px 30px;
+      width: 100%;
+      margin-left: 0;
+    }
+
+
+  }
+}
+
