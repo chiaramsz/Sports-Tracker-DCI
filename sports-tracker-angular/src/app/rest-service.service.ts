@@ -13,5 +13,4 @@ export class RestService{
       .toPromise()
       .then();
   }
-
 }
