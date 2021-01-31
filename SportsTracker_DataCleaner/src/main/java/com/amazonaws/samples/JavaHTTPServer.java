@@ -2,6 +2,7 @@ package com.amazonaws.samples;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.Date;
 import java.util.StringTokenizer;
 
 public class JavaHTTPServer implements Runnable {
@@ -10,12 +11,15 @@ public class JavaHTTPServer implements Runnable {
 
     public JavaHTTPServer(Socket c) {
         connect = c;
+        System.out.println("frontend connected");
     }
 
     @Override
     public void run() {
         // we manage our particular client connection
-        BufferedReader in = null; PrintWriter out = null; BufferedOutputStream dataOut = null;
+        BufferedReader in = null;
+        PrintWriter out = null;
+        BufferedOutputStream dataOut = null;
         String fileRequested = null;
 
         try {
@@ -38,26 +42,20 @@ public class JavaHTTPServer implements Runnable {
             if (method.equals("GET")) {
                 // GET method
                 File file = new File(fileRequested);
-
-
                 int fileLength = (int) file.length();
-                String content = "application/json; utf-8";
+                byte[] fileData = readFileData(file, fileLength);
 
-                if (method.equals("GET")) { // GET method so we return content
-                    byte[] fileData = readFileData(file, fileLength);
+                // send HTTP Headers
+                out.println("HTTP/1.1 200 OK");
+                out.println("Server: Java HTTP Server from SSaurel : 1.0");
+                out.println("Date: " +  new Date());
+                out.println("Content-type: application/json; utf-8");
+                out.println("Content-length: " + fileLength);
+                out.println(); // blank line between headers and content, very important !
+                out.flush(); // flush character output stream buffer
 
-                    // send HTTP Headers
-                    out.println("HTTP/1.1 200 OK");
-                    out.println("Server: Java HTTP Server from SSaurel : 1.0");
-                    out.println("Date: ");
-                    out.println("Content-type: " + content);
-                    out.println("Content-length: " + fileLength);
-                    out.println(); // blank line between headers and content, very important !
-                    out.flush(); // flush character output stream buffer
-
-                    dataOut.write(fileData, 0, fileLength);
-                    dataOut.flush();
-                }
+                dataOut.write(fileData, 0, fileLength);
+                dataOut.flush();
             }
 
         } catch (IOException ioe) {

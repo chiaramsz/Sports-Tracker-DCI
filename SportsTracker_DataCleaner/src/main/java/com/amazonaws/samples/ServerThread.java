@@ -22,6 +22,7 @@ public class ServerThread implements Runnable {
 
     public ServerThread(Socket clientSocket) {
         this.clientSocket = clientSocket;
+        System.out.println("client connected");
     }
 
 
@@ -33,16 +34,20 @@ public class ServerThread implements Runnable {
             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             String tracker = getUniqueTrackerId();
             out.print(tracker);
+            System.out.println("trackerId send");
 
 
             String locations = in.readLine();
+            System.out.println("locations received");
 
             JSONObject json = new JSONObject(locations);
             File file = createFile(json, tracker);
 
             uploadFile(file);
+            System.out.println("file uploaded");
 
         } catch (IOException e) {
+            System.out.println("error in ServerThread");
             e.printStackTrace();
         }
     }

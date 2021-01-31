@@ -12,6 +12,7 @@ public class BackendThread implements Runnable{
         /***************** Wait for clients to connect ****************/
         ServerSocket serverSocket = null;
         try {
+            System.out.println("listener for phones started");
             serverSocket = new ServerSocket(portNumber);
             while (true) {
                 Socket clientSocket = serverSocket.accept();

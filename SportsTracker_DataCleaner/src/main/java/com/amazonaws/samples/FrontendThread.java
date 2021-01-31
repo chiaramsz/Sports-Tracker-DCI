@@ -15,6 +15,7 @@ public class FrontendThread implements Runnable {
 
             // we listen until user halts server execution
             while (true) {
+                System.out.println("Listener for frontend started");
                 JavaHTTPServer myServer = new JavaHTTPServer(serverConnect.accept());
 
                 // create dedicated thread to manage the client connection

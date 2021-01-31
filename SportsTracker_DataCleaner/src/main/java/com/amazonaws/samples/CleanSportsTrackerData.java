@@ -27,6 +27,7 @@ public class CleanSportsTrackerData {
     public static void main(String[] args) throws IOException, IllegalStateException {
 
         try {
+            System.out.println("Program started");
             new Thread(new BackendThread()).start();
             new Thread(new FrontendThread()).start();
 
