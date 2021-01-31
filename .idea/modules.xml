@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/DCI_Projekt.iml" filepath="$PROJECT_DIR$/.idea/DCI_Projekt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SportsTracker_DataCleaner/samples.iml" filepath="$PROJECT_DIR$/SportsTracker_DataCleaner/samples.iml" />
     </modules>
   </component>
 </project>

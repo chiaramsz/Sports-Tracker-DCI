@@ -3,6 +3,28 @@
   <groupId>com.amazonaws</groupId>
   <artifactId>samples</artifactId>
   <version>1.0.0</version>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>7</source>
+          <target>7</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>com.amazonaws.samples.BucketAndEC2Connection</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
   <dependencies>
     <dependency>
       <groupId>com.amazonaws</groupId>
@@ -15,6 +37,11 @@
       <artifactId>amazon-kinesis-client</artifactId>
       <version>1.2.1</version>
       <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20201115</version>
     </dependency>
   </dependencies>
 </project>
