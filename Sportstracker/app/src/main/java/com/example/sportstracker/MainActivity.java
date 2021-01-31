@@ -30,6 +30,11 @@ import android.widget.Toast;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,6 +72,10 @@ public class MainActivity extends AppCompatActivity {
 
     private static ProgressDialog progressDialog;
     private boolean ready = false;
+
+    //connection to kevin
+    private static String hostName = "sportstracker";
+    private static int portNumber = 123;
 
     // Monitors the state of the connection to the service.
     private final ServiceConnection mServiceConnection = new ServiceConnection() {
@@ -135,8 +144,26 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 try {
                     Thread.sleep(3000);
+
+                    Socket clientSocket = new Socket(hostName, portNumber);
+                    PrintWriter out = new PrintWriter(clientSocket.getOutputStream(),true);
+                    BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+
+                    trackerId = in.readLine();
+                    out.print(locations);
+
+
+                    //aufrufen sobald trackerid da ist(von kevins rasperry)
                     startResultActivity();
-                } catch (InterruptedException e) {
+
+                    //writer & reader & socket close
+                    out.close();
+                    in.close();
+                    clientSocket.close();
+
+
+
+                } catch (InterruptedException | IOException e) {
                     e.printStackTrace();
                 }
             }
