@@ -1,0 +1,5 @@
+com\amazonaws\samples\ServerThread.class
+com\amazonaws\samples\BackendThread.class
+com\amazonaws\samples\FrontendThread.class
+com\amazonaws\samples\CleanSportsTrackerData.class
+com\amazonaws\samples\JavaHTTPServer.class
