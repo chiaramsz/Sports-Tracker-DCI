@@ -74,8 +74,8 @@ public class MainActivity extends AppCompatActivity {
     private boolean ready = false;
 
     //connection to kevin
-    private static String hostName = "sportstracker";
-    private static int portNumber = 123;
+    private static String hostName = "ec2-54-235-229-86.compute-1.amazonaws.com";
+    private static int portNumber = 6400;
 
     // Monitors the state of the connection to the service.
     private final ServiceConnection mServiceConnection = new ServiceConnection() {
@@ -143,14 +143,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(3000);
+                    Log.i(TAG, "Thread started");
+                    Log.i(TAG, locations);
 
                     Socket clientSocket = new Socket(hostName, portNumber);
                     PrintWriter out = new PrintWriter(clientSocket.getOutputStream(),true);
                     BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+                    Log.i(TAG, "Socket created");
 
                     trackerId = in.readLine();
+                    Log.i(TAG, "tracker id");
                     out.print(locations);
+                    out.flush();
+
+                    Log.i(TAG, "locations");
 
 
                     //aufrufen sobald trackerid da ist(von kevins rasperry)
@@ -163,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                } catch (InterruptedException | IOException e) {
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }

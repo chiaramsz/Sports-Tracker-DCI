@@ -32,6 +32,7 @@ public class ServerThread implements Runnable {
             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             String tracker = getUniqueTrackerId();
             out.print(tracker);
+            out.flush();
             System.out.println("trackerId send");
 
 

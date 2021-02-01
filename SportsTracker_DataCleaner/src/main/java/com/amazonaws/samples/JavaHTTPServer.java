@@ -41,7 +41,7 @@ public class JavaHTTPServer implements Runnable {
             // we support only GET and HEAD methods, we check
             if (method.equals("GET")) {
                 // GET method
-                String fileData = readFile(fileRequested + ".txt");
+                String fileData = readFile(fileRequested.substring(1) + ".txt");
 
                 // send HTTP Headers
                 out.println("HTTP/1.1 200 OK");
