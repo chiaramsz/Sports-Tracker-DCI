@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
   faRunning = faRunning;
   faFire = faFire;
   title = 'sports-tracker';
+  trackerId = '';
   latitude = -28.68352;
   longitude = -147.20785;
   mapType = 'satellite';
@@ -29,14 +30,20 @@ export class AppComponent implements OnInit {
   map: any;
 
   ngOnInit(): void {
-    this.visualizeData();
 
   }
 
-
+  public getTrackerId(): void {
+    this.trackerId = (document.getElementById('trackerId') as HTMLInputElement).value ;
+    this.visualizeData();
+    // const file = this.trackerId + '.txt';
+    // console.log('File ' + file);
+    // console.log(this.trackerId);
+  }
 
   private visualizeData(): void {
-    this.rest.getTrainingData()
+    console.log(this.trackerId);
+    this.rest.getTrainingData(this.trackerId)
       .then(r => console.log(r));
     this.distance = '3km';
     this.calories = '200kcal';
@@ -54,15 +61,7 @@ export class AppComponent implements OnInit {
   }
 
 
-  private getTrackerId(): void {
-    // @ts-ignore
-    const trackerId = document.getElementById('trackerId').innerText;
-    const file = trackerId + '.txt';
-    console.log('File ' + file);
-    console.log(trackerId);
 
-
-  }
 
   /*
   private initMap(): void {
