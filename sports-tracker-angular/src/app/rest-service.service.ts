@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {DataResponse} from './DataResponse';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RestService{
   basicUrl = 'http://';
+  port = '8080';
   constructor(private http: HttpClient) { }
 
-  public getTrainingData(trackerId: string): Promise<DataResponse>{
-    const host = 'ec2-54-235-229-86.compute-1.amazonaws.com';
-    return this.http.get(this.basicUrl + host + '/' + trackerId)
-      .toPromise()
-        .then(item => (item as {items: DataResponse}).items);
+  public async getTrainingData(trackerId: string): Promise<any>{
+    const host = '34.201.100.51:' + this.port;
+    return await this.http.get(this.basicUrl + host + '/' + trackerId)
+      .toPromise();
   }
 }
